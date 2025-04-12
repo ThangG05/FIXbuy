@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MÁY TÍNH | ANH EM ROT TECH FUTURE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-pink: #ff2a6d;
+            --neon-blue: #05d9e8;
+            --neon-purple: #d300c5;
+            --cyber-yellow: #f9f002;
+            --dark-bg: #0d0221;
+            --grid-line: rgba(5, 217, 232, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 500;
+            background-color: var(--dark-bg);
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: gridScroll 60s linear infinite;
+        }
+        
+        @keyframes gridScroll {
+            from { background-position: 0 0; }
+            to { background-position: 1000px 1000px; }
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 15px;
+            position: relative;
+        }
+        
+        /* Cyberpunk Glow Effects */
+        .cyber-glow {
+            text-shadow: 0 0 5px currentColor;
+        }
+        
+        .cyber-border {
+            border: 1px solid var(--neon-blue);
+            box-shadow: 0 0 5px var(--neon-blue);
+        }
+        
+        /* Header */
+        header {
+            background: rgba(13, 2, 33, 0.9);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--neon-purple);
+            box-shadow: 0 0 10px var(--neon-purple);
+            padding: 15px 0;
+            position: relative;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 1px;
+            position: relative;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
+            animation: logoGlow 2s infinite alternate;
+        }
+        
+        @keyframes logoGlow {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        /* Main Content */
+        main {
+            padding: 30px 0;
+            position: relative;
+        }
+        
+        .cyber-section {
+            background: rgba(5, 217, 232, 0.05);
+            border: 1px solid var(--neon-blue);
+            box-shadow: 0 0 10px rgba(5, 217, 232, 0.2);
+            padding: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .cyber-section:hover {
+            box-shadow: 0 0 15px rgba(5, 217, 232, 0.3);
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            color: var(--neon-blue);
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-pink), transparent);
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            color: var(--neon-pink);
+        }
+        
+        h3 {
+            font-size: 1.2rem;
+            color: var(--cyber-yellow);
+        }
+        
+        /* PC Products */
+        .pc-header {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+        
+        .pc-filter {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .filter-btn {
+            background: rgba(255, 42, 109, 0.1);
+            border: 1px solid var(--neon-pink);
+            color: white;
+            padding: 8px 15px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--neon-pink);
+            color: var(--dark-bg);
+            box-shadow: 0 0 10px var(--neon-pink);
+        }
+        
+        .pc-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        .pc-card {
+            background: rgba(13, 2, 33, 0.7);
+            border: 1px solid var(--neon-purple);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .pc-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 42, 109, 0.2);
+        }
+        
+        .pc-image {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+        }
+        
+        .pc-image img {
+            max-width: 85%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+        
+        .pc-card:hover .pc-image img {
+            transform: scale(1.05);
+        }
+        
+        .pc-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--neon-blue);
+            color: white;
+            padding: 4px 8px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            z-index: 1;
+            box-shadow: 0 0 5px var(--neon-blue);
+        }
+        
+        .pc-info {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .pc-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .pc-specs {
+            color: #aaa;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            flex-grow: 1;
+        }
+        
+        .pc-specs span {
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .pc-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--cyber-yellow);
+            margin-top: 10px;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .pc-old-price {
+            font-size: 1rem;
+            color: #777;
+            text-decoration: line-through;
+            margin-right: 8px;
+        }
+        
+        .pc-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .buy-btn, .detail-btn {
+            flex: 1;
+            padding: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 0.9rem;
+        }
+        
+        .buy-btn {
+            background: var(--neon-pink);
+            color: var(--dark-bg);
+        }
+        
+        .buy-btn:hover {
+            background: var(--dark-bg);
+            color: var(--neon-pink);
+            box-shadow: 0 0 10px var(--neon-pink);
+        }
+        
+        .detail-btn {
+            background: transparent;
+            color: var(--neon-blue);
+            border: 1px solid var(--neon-blue);
+        }
+        
+        .detail-btn:hover {
+            background: var(--neon-blue);
+            color: var(--dark-bg);
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+        
+        /* Brands Section */
+        .brands-section {
+            margin-top: 30px;
+        }
+        
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .brand-card {
+            background: rgba(13, 2, 33, 0.5);
+            border: 1px solid var(--neon-blue);
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            height: 80px;
+        }
+        
+        .brand-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(5, 217, 232, 0.2);
+        }
+        
+        .brand-card img {
+            max-width: 100%;
+            max-height: 50px;
+            filter: grayscale(100%) brightness(2);
+            transition: filter 0.3s ease;
+        }
+        
+        .brand-card:hover img {
+            filter: grayscale(0%) brightness(1);
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(13, 2, 33, 0.9);
+            border-top: 1px solid var(--neon-purple);
+            padding: 30px 0;
+            position: relative;
+        }
+        
+        .cyber-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--neon-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            color: var(--neon-blue);
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+        
+        .cyber-copyright {
+            text-align: center;
+            color: #aaa;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+        
+        /* Cyberpunk Scanlines Effect */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                rgba(13, 2, 33, 0.2) 50%, 
+                transparent 50%
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 9999;
+            animation: scanline 8s linear infinite;
+        }
+        
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100%; }
+        }
+        
+        /* Back to Home Button */
+        .back-to-home {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--neon-pink);
+            color: var(--dark-bg);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 0 10px var(--neon-pink);
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-home:hover {
+            background: var(--dark-bg);
+            color: var(--neon-pink);
+            box-shadow: 0 0 15px var(--neon-pink);
+            transform: scale(1.1);
+        }
+        
+        /* Responsive Adjustments */
+        @media (min-width: 576px) {
+            .pc-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .brands-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .pc-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .brands-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .pc-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .brands-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="scanlines"></div>
+    
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-laptop"></i>
+                <span>ThangG</span>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <!-- PC Showcase -->
+        <section class="cyber-section">
+            <div class="pc-header">
+                <h1>MÁY TÍNH CÔNG NGHỆ</h1>
+                <div class="pc-filter">
+                    <button class="filter-btn active">TẤT CẢ</button>
+                    <button class="filter-btn">GAMING</button>
+                    <button class="filter-btn">ĐỒ HỌA</button>
+                    <button class="filter-btn">MỚI NHẤT</button>
+                </div>
+            </div>
+            
+            <div class="pc-grid">
+                <!-- MacBook Pro M2 -->
+                <div class="pc-card">
+                    <div class="pc-badge">MỚI NHẤT</div>
+                    <div class="pc-image">
+                        <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="MacBook Pro M2">
+                    </div>
+                    <div class="pc-info">
+                        <div class="pc-name">MACBOOK PRO M2 2023</div>
+                        <div class="pc-specs">
+                            <span>CPU: Apple M2 Pro 10-core</span>
+                            <span>RAM: 16GB - SSD: 512GB</span>
+                            <span>Màn hình: 14.2" Liquid Retina XDR</span>
+                            <span>GPU: 16-core - Pin: 18h</span>
+                        </div>
+                        <div class="pc-price">42.990.000Đ</div>
+                        <div class="pc-actions">
+                            <button class="buy-btn">MUA NGAY</button>
+                            <button class="detail-btn">CHI TIẾT</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ASUS ROG Strix G16 -->
+                <div class="pc-card">
+                    <div class="pc-badge">GAMING</div>
+                    <div class="pc-image">
+                        <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="ASUS ROG Strix G16">
+                    </div>
+                    <div class="pc-info">
+                        <div class="pc-name">ASUS ROG STRIX G16</div>
+                        <div class="pc-specs">
+                            <span>CPU: Intel Core i9-13980HX</span>
+                            <span>RAM: 32GB - SSD: 1TB</span>
+                            <span>Màn hình: 16" QHD 240Hz</span>
+                            <span>GPU: RTX 4080 12GB</span>
+                        </div>
+                        <div class="pc-price">54.990.000Đ</div>
+                        <div class="pc-actions">
+                            <button class="buy-btn">MUA NGAY</button>
+                            <button class="detail-btn">CHI TIẾT</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dell XPS 15 -->
+                <div class="pc-card">
+                    <div class="pc-badge">ĐỒ HỌA</div>
+                    <div class="pc-image">
+                        <img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Dell XPS 15">
+                    </div>
+                    <div class="pc-info">
+                        <div class="pc-name">DELL XPS 15 9530</div>
+                        <div class="pc-specs">
+                            <span>CPU: Intel Core i7-13700H</span>
+                            <span>RAM: 32GB - SSD: 1TB</span>
+                            <span>Màn hình: 15.6" 4K OLED Touch</span>
+                            <span>GPU: RTX 4070 8GB</span>
+                        </div>
+                        <div class="pc-price">49.990.000Đ</div>
+                        <div class="pc-actions">
+                            <button class="buy-btn">MUA NGAY</button>
+                            <button class="detail-btn">CHI TIẾT</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Acer Predator Helios 300 -->
+                <div class="pc-card">
+                    <div class="pc-badge">GIÁ TỐT</div>
+                    <div class="pc-image">
+                        <img src="https://images.unsplash.com/photo-1593642634524-b40b5baae6bb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Acer Predator Helios 300">
+                    </div>
+                    <div class="pc-info">
+                        <div class="pc-name">ACER PREDATOR HELIOS 300</div>
+                        <div class="pc-specs">
+                            <span>CPU: Intel Core i7-12700H</span>
+                            <span>RAM: 16GB - SSD: 512GB</span>
+                            <span>Màn hình: 15.6" QHD 165Hz</span>
+                            <span>GPU: RTX 3070 Ti 8GB</span>
+                        </div>
+                        <div class="pc-price">
+                            <span class="pc-old-price">34.990.000Đ</span>
+                            29.990.000Đ
+                        </div>
+                        <div class="pc-actions">
+                            <button class="buy-btn">MUA NGAY</button>
+                            <button class="detail-btn">CHI TIẾT</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Brands Section -->
+        <section class="cyber-section brands-section">
+            <h2>THƯƠNG HIỆU NỔI BẬT</h2>
+            <div class="brands-grid">
+                <div class="brand-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple">
+                </div>
+                <div class="brand-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung">
+                </div>
+        
+                <div class="brand-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Dell_logo_2016.svg" alt="Dell">
+                </div>
+                <div class="brand-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/HP_logo_2012.svg" alt="HP">
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <h2 style="text-align: center;">THEO DÕI CHÚNG TÔI</h2>
+            <div class="cyber-social">
+                <a href="https://www.facebook.com/ara.gaming.9022" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <p class="cyber-copyright">
+                © 2025 ThanggG TECH FUTURE. ALL RIGHTS RESERVED.
+            </p>
+        </div>
+    </footer>
+    
+    <!-- Back to Home Button -->
+    <a href="index.html" class="back-to-home" title="Về trang chủ">
+        <i class="fas fa-home"></i>
+    </a>
+    
+    <script>
+        // Mobile-friendly glitch effect
+        setInterval(() => {
+            if(Math.random() > 0.97) {
+                document.body.style.filter = 'hue-rotate(' + (Math.random() * 30 - 15) + 'deg)';
+                setTimeout(() => {
+                    document.body.style.filter = 'none';
+                }, 200);
+            }
+        }, 5000);
+        
+        // Filter buttons functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    // Here you would add filtering logic
+                });
+            });
+            
+            // Simple touch effect for mobile
+            document.querySelectorAll('.pc-card, .brand-card, .social-link').forEach(el => {
+                el.addEventListener('touchstart', function() {
+                    this.classList.add('hover');
+                }, false);
+                el.addEventListener('touchend', function() {
+                    setTimeout(() => this.classList.remove('hover'), 100);
+                }, false);
+            });
+        });
+    </script>
+</body>
+</html>
