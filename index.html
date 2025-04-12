@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ThangG | TECH FUTURE</title>
+    <title>Trang chủ |ThangG TECH FUTURE</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
@@ -470,6 +470,7 @@
             left: 100%;
         }
 
+
         /* CSS cho form đặt hàng */
         .form-overlay {
             position: fixed;
@@ -701,6 +702,16 @@
         option{
             color: #d300c5;
         }
+        p{
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: lighter;
+            color: rgb(38, 61, 84);
+        }
+        .buy-btn{
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: lighter;
+            color :rgb(62, 66, 62);
+        }
     </style>
 </head>
 <body>
@@ -719,7 +730,9 @@
         <!-- Featured Products - Updated with Images -->
         <section class="cyber-section">
             <h1>SẢN PHẨM NỔI BẬT</h1>
-            <button onclick="moForm()" class="buy-btn">Đặt hàng ngay</button>
+            <div class="buy-filter">
+                <button onclick="moForm()" class="buy-btn">Đặt hàng ngay</button>
+            </div>
             <div class="cyber-products">
                 <div class="cyber-product">
                     <div class="product-image">
